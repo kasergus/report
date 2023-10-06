@@ -1,0 +1,14 @@
+- hosts: Kasparov 
+  tasks:
+ 
+   - name: Installing cmatrix
+     become: yes
+     apt: name=cmatrix
+
+   - name: Installing cowsay 
+     become: yes
+     apt: name=cowsay
+
+   - name: Installing sl
+     become: yes
+     apt: name=sl

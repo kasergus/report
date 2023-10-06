@@ -1,0 +1,2 @@
+[Kasparov]
+ubuntu@192.168.79.126 ansible_sudo_pass=ubuntu
