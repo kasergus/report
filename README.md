@@ -40,7 +40,7 @@
 
 ## 3. Электронные почты
 
-> Используемые утилиты: [anymailfinder](https://anymailfinder.com/), [epieos](https://epieos.com/), [intelx](https://intelx.io/), [avatarapi](https://www.avatarapi.com/), [emailrep](https://emailrep.io/), [haveibennpwned](https://haveibeenpwned.com/)
+> Используемые утилиты: [anymailfinder](https://anymailfinder.com/), [epieos](https://epieos.com/), [intelx](https://intelx.io/), [avatarapi](https://www.avatarapi.com/), [emailrep](https://emailrep.io/), [haveibennpwned](https://haveibeenpwned.com/).
 
 Для начала я вытащил эмейлы из сайта с помощью anymailfinder.
 
