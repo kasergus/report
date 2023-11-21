@@ -1,6 +1,6 @@
 # Сбор информации об университете МИФИ
 
-# 1. Глобальная информация
+## 1. Глобальная информация
 
 > Используемые утилиты: [whois](https://www.whois.com/whois/), [shodan](https://www.shodan.io/).
 
@@ -12,7 +12,7 @@
 
 ![shodan2](screenshots/domain_name/shodan_ns.png)
 
-# 2. Данные о физических лицах
+## 2. Данные о физических лицах
 
 > Используемые утилиты: [list-org](https://www.list-org.com/), [egrul_bot](https://telegra.ph/Instrukciya-k-egrul-bot-11-19).
 
@@ -38,7 +38,7 @@
 
 ![maria](screenshots/people/maria.png)
 
-# 3. Электронные почты
+## 3. Электронные почты
 
 > Используемые утилиты: [anymailfinder](https://anymailfinder.com/), [epieos](https://epieos.com/), [intelx](https://intelx.io/), [avatarapi](https://www.avatarapi.com/), [emailrep](https://emailrep.io/), [haveibennpwned](https://haveibeenpwned.com/)
 
