@@ -1,29 +1,69 @@
-# Отчёт о шифровке и расшифровке gpg файла
+# Сбор информации об университете МИФИ
 
-## Подготовка
+# 1. Глобальная информация
 
-С начала создаётся ключ отправителя.
+> Используемые утилиты: [whois](https://www.whois.com/whois/), [shodan](https://www.shodan.io/).
 
-![sender_key_gen](screenshots/sender/gpg_key_gen.png)
+![whois](screenshots/domain_name/whois.png)
 
-Затем получателя.
+Из whois узнал адреса айпи серверов, и просканировал их с помощью shodan.
 
-![recipient_key_gen](screenshots/recipient/gpg_key_gen.png)
+![shodan1](screenshots/domain_name/shodan_agora.png)
 
-Демонстрация публичного ключа.
+![shodan2](screenshots/domain_name/shodan_ns.png)
 
-![recipient_key_showcase](screenshots/recipient/gpg_key_showcase.png)
+# 2. Данные о физических лицах
 
-Публичный ключ получателя отправляется отправителю для дальнейшего шифрования.
+> Используемые утилиты: [list-org](https://www.list-org.com/), [egrul_bot](https://telegra.ph/Instrukciya-k-egrul-bot-11-19).
 
-![recipient_key_transfer](screenshots/recipient/gpg_export_file.png)
+Из list-org достал список сотрудников.
 
-## Шифровка и расшифровка файла
+![list_of_members](screenshots/people/list.png)
 
-Отправитель шифрует файл, используя публичный ключ получателя.
+Затем узнал информацию по сотрудникам с помощью этой же утилиты об учредителе.
 
-![sender_file_encryption](screenshots/sender/gpg_encryption.png)
+![kupcov](screenshots/people/kupcov1.png)
 
-После получения файла, получатель расшифровывает его.
+![kupcov](screenshots/people/kupcov2.png)
 
-![recipient_file_decryption](screenshots/recipient/gpg_decryption.png)
+А так же об остальных сотрудниках.
+
+![dmitriev](screenshots/people/dmitriev.png)
+
+![tamara](screenshots/people/tamara.png)
+
+![vesna](screenshots/people/vesna.png)
+
+А так же использовал телеграмм бота egrul.
+
+![maria](screenshots/people/maria.png)
+
+# 3. Электронные почты
+
+> Используемые утилиты: [anymailfinder](https://anymailfinder.com/), [epieos](https://epieos.com/), [intelx](https://intelx.io/), [avatarapi](https://www.avatarapi.com/), [emailrep](https://emailrep.io/), [haveibennpwned](https://haveibeenpwned.com/)
+
+Для начала я вытащил эмейлы из сайта с помощью anymailfinder.
+
+![emails](screenshots/emails/emails.png)
+
+Затем начал проверять разные эмейлы разными утилитами.
+
+![aspotapova](screenshots/emails/aspotapova.png)
+
+![crdpo1](screenshots/emails/crdpo1.png)
+
+![crdpo2](screenshots/emails/crdpo2.png)
+
+![crdpo3](screenshots/emails/crdpo3.png)
+
+![iayudin1](screenshots/emails/iayudin1.png)
+
+![iayudin2](screenshots/emails/iayudin2.png)
+
+![mopk](screenshots/emails/mopk.png)
+
+![nvpk](screenshots/emails/nvpk.png)
+
+![yamaslov1](screenshots/emails/yamaslov1.png)
+
+![yamaslov2](screenshots/emails/yamaslov2.png)
