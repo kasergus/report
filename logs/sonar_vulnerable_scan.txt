@@ -1,0 +1,427 @@
+INFO: Scanner configuration file: /opt/sonar-scanner/conf/sonar-scanner.properties
+INFO: Project root configuration file: NONE
+INFO: SonarScanner 5.0.1.3006
+INFO: Java 21.0.2 N/A (64-bit)
+INFO: Linux 6.6.18-1-lts amd64
+INFO: User cache: /home/kas/.sonar/cache
+INFO: Analyzing on SonarQube server 10.5.1.90531
+INFO: Default locale: "en_US", source code encoding: "UTF-8" (analysis is platform dependent)
+INFO: Load global settings
+INFO: Load global settings (done) | time=174ms
+INFO: Server id: 46AF5D23-AY_LO23R_3vtJVGmuK0S
+INFO: User cache: /home/kas/.sonar/cache
+INFO: Loading required plugins
+INFO: Load plugins index
+INFO: Load plugins index (done) | time=187ms
+INFO: Load/download plugins
+INFO: Load/download plugins (done) | time=58ms
+INFO: Process project properties
+INFO: Process project properties (done) | time=6ms
+INFO: Project key: hello
+INFO: Base dir: /home/kas
+INFO: Working dir: /home/kas/.scannerwork
+INFO: Load project settings for component key: 'hello'
+INFO: ------------------------------------------------------------------------
+INFO: EXECUTION FAILURE
+INFO: ------------------------------------------------------------------------
+INFO: Total time: 1.597s
+INFO: Final Memory: 9M/28M
+INFO: ------------------------------------------------------------------------
+ERROR: Error during SonarScanner execution
+ERROR: You're not authorized to analyze this project or the project doesn't exist on SonarQube and you're not authorized to create it. Please contact an administrator.
+ERROR: 
+ERROR: Re-run SonarScanner using the -X switch to enable full debug logging.
+Exception in thread "Thread-0" java.lang.NoClassDefFoundError: ch/qos/logback/classic/spi/ThrowableProxy
+	at ch.qos.logback.classic.spi.LoggingEvent.<init>(LoggingEvent.java:145)
+	at ch.qos.logback.classic.Logger.buildLoggingEventAndAppend(Logger.java:424)
+	at ch.qos.logback.classic.Logger.filterAndLog_0_Or3Plus(Logger.java:386)
+	at ch.qos.logback.classic.Logger.error(Logger.java:543)
+	at org.eclipse.jgit.internal.util.ShutdownHook.cleanup(ShutdownHook.java:87)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.ClassNotFoundException: ch.qos.logback.classic.spi.ThrowableProxy
+	at java.base/java.net.URLClassLoader.findClass(Unknown Source)
+	at org.sonarsource.scanner.api.internal.IsolatedClassloader.loadClass(IsolatedClassloader.java:82)
+	at java.base/java.lang.ClassLoader.loadClass(Unknown Source)
+	... 6 more
+❯ sudo nvim /opt/sonar-scanner/conf/sonar-scanner.properties
+❯ sonar-scanner
+INFO: Scanner configuration file: /opt/sonar-scanner/conf/sonar-scanner.properties
+INFO: Project root configuration file: NONE
+INFO: SonarScanner 5.0.1.3006
+INFO: Java 21.0.2 N/A (64-bit)
+INFO: Linux 6.6.18-1-lts amd64
+INFO: User cache: /home/kas/.sonar/cache
+INFO: Analyzing on SonarQube server 10.5.1.90531
+INFO: Default locale: "en_US", source code encoding: "UTF-8" (analysis is platform dependent)
+INFO: Load global settings
+INFO: Load global settings (done) | time=271ms
+INFO: Server id: 46AF5D23-AY_LO23R_3vtJVGmuK0S
+INFO: User cache: /home/kas/.sonar/cache
+INFO: Loading required plugins
+INFO: Load plugins index
+INFO: Load plugins index (done) | time=173ms
+INFO: Load/download plugins
+INFO: Load/download plugins (done) | time=48ms
+INFO: Process project properties
+INFO: Process project properties (done) | time=6ms
+INFO: Project key: hello
+INFO: Base dir: /home/kas
+INFO: Working dir: /home/kas/.scannerwork
+INFO: Load project settings for component key: 'hello'
+INFO: Load project settings for component key: 'hello' (done) | time=143ms
+INFO: Load quality profiles
+INFO: Load quality profiles (done) | time=247ms
+WARN: SCM provider autodetection failed. Please use "sonar.scm.provider" to define SCM of your project, or disable the SCM Sensor in the project settings.
+INFO: Load active rules
+INFO: Load active rules (done) | time=5235ms
+INFO: Load analysis cache
+INFO: Load analysis cache (404) | time=146ms
+WARN: The properties 'sonar.login' and 'sonar.password' are deprecated and will be removed in the future. Please pass a token with the 'sonar.token' property instead.
+INFO: Preprocessing files...
+INFO: 1 language detected in 1 preprocessed file
+INFO: Loading plugins for detected languages
+INFO: Load/download plugins
+INFO: Load/download plugins (done) | time=0ms
+INFO: Inconsistent constructor declaration on bean with name 'org.sonarsource.scanner.api.internal.IsolatedClassloader@458c1321-org.sonar.scanner.issue.IssueFilters': single autowire-marked constructor flagged as optional - this constructor is effectively required since there is no default constructor to fall back to: public org.sonar.scanner.issue.IssueFilters(org.sonar.api.batch.fs.internal.DefaultInputProject)
+INFO: Load project repositories
+INFO: Load project repositories (done) | time=161ms
+INFO: Indexing files...
+INFO: Project configuration:
+INFO: 1 file indexed
+INFO: Quality profile for py: Sonar way
+INFO: ------------- Run sensors on module hello
+INFO: Load metrics repository
+INFO: Load metrics repository (done) | time=154ms
+INFO: Sensor JaCoCo XML Report Importer [jacoco]
+INFO: 'sonar.coverage.jacoco.xmlReportPaths' is not defined. Using default locations: target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml,build/reports/jacoco/test/jacocoTestReport.xml
+INFO: No report imported, no coverage information will be imported by JaCoCo XML Report Importer
+INFO: Sensor JaCoCo XML Report Importer [jacoco] (done) | time=2ms
+INFO: Sensor Python Sensor [python]
+WARN: Your code is analyzed as compatible with all Python 3 versions by default. You can get a more precise analysis by setting the exact Python version in your configuration via the parameter "sonar.python.version"
+INFO: Starting global symbols computation
+INFO: 1 source file to be analyzed
+INFO: 1/1 source file has been analyzed
+INFO: Starting rules execution
+INFO: 1 source file to be analyzed
+INFO: 1/1 source file has been analyzed
+INFO: The Python analyzer was able to leverage cached data from previous analyses for 0 out of 1 files. These files were not parsed.
+INFO: Sensor Python Sensor [python] (done) | time=517ms
+INFO: Sensor Cobertura Sensor for Python coverage [python]
+INFO: ------------------------------------------------------------------------
+INFO: EXECUTION FAILURE
+INFO: ------------------------------------------------------------------------
+INFO: Total time: 11.976s
+INFO: Final Memory: 19M/68M
+INFO: ------------------------------------------------------------------------
+ERROR: Error during SonarScanner execution
+java.io.UncheckedIOException: java.nio.file.AccessDeniedException: /home/kas/.cache/yay/libdesq-git/pkg
+	at java.base/java.nio.file.FileTreeIterator.fetchNextIfNeeded(Unknown Source)
+	at java.base/java.nio.file.FileTreeIterator.hasNext(Unknown Source)
+	at java.base/java.util.Iterator.forEachRemaining(Unknown Source)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(Unknown Source)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline.collect(Unknown Source)
+	at org.sonarsource.analyzer.commons.FileProvider.getMatchingFiles(FileProvider.java:45)
+	at org.sonar.plugins.python.PythonReportSensor.getReports(PythonReportSensor.java:73)
+	at org.sonar.plugins.python.coverage.PythonCoverageSensor.getCoverageReports(PythonCoverageSensor.java:89)
+	at org.sonar.plugins.python.coverage.PythonCoverageSensor.execute(PythonCoverageSensor.java:77)
+	at org.sonar.scanner.sensor.AbstractSensorWrapper.analyse(AbstractSensorWrapper.java:64)
+	at org.sonar.scanner.sensor.ModuleSensorsExecutor.execute(ModuleSensorsExecutor.java:88)
+	at org.sonar.scanner.sensor.ModuleSensorsExecutor.lambda$execute$1(ModuleSensorsExecutor.java:61)
+	at org.sonar.scanner.sensor.ModuleSensorsExecutor.withModuleStrategy(ModuleSensorsExecutor.java:79)
+	at org.sonar.scanner.sensor.ModuleSensorsExecutor.execute(ModuleSensorsExecutor.java:61)
+	at org.sonar.scanner.scan.SpringModuleScanContainer.doAfterStart(SpringModuleScanContainer.java:82)
+	at org.sonar.core.platform.SpringComponentContainer.startComponents(SpringComponentContainer.java:226)
+	at org.sonar.core.platform.SpringComponentContainer.execute(SpringComponentContainer.java:205)
+	at org.sonar.scanner.scan.SpringProjectScanContainer.scan(SpringProjectScanContainer.java:204)
+	at org.sonar.scanner.scan.SpringProjectScanContainer.scanRecursively(SpringProjectScanContainer.java:200)
+	at org.sonar.scanner.scan.SpringProjectScanContainer.doAfterStart(SpringProjectScanContainer.java:173)
+	at org.sonar.core.platform.SpringComponentContainer.startComponents(SpringComponentContainer.java:226)
+	at org.sonar.core.platform.SpringComponentContainer.execute(SpringComponentContainer.java:205)
+	at org.sonar.scanner.bootstrap.SpringScannerContainer.doAfterStart(SpringScannerContainer.java:351)
+	at org.sonar.core.platform.SpringComponentContainer.startComponents(SpringComponentContainer.java:226)
+	at org.sonar.core.platform.SpringComponentContainer.execute(SpringComponentContainer.java:205)
+	at org.sonar.scanner.bootstrap.SpringGlobalContainer.doAfterStart(SpringGlobalContainer.java:138)
+	at org.sonar.core.platform.SpringComponentContainer.startComponents(SpringComponentContainer.java:226)
+	at org.sonar.core.platform.SpringComponentContainer.execute(SpringComponentContainer.java:205)
+	at org.sonar.batch.bootstrapper.Batch.doExecute(Batch.java:71)
+	at org.sonar.batch.bootstrapper.Batch.execute(Batch.java:65)
+	at org.sonarsource.scanner.api.internal.batch.BatchIsolatedLauncher.execute(BatchIsolatedLauncher.java:46)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.sonarsource.scanner.api.internal.IsolatedLauncherProxy.invoke(IsolatedLauncherProxy.java:60)
+	at jdk.proxy1/jdk.proxy1.$Proxy0.execute(Unknown Source)
+	at org.sonarsource.scanner.api.EmbeddedScanner.doExecute(EmbeddedScanner.java:189)
+	at org.sonarsource.scanner.api.EmbeddedScanner.execute(EmbeddedScanner.java:138)
+	at org.sonarsource.scanner.cli.Main.execute(Main.java:126)
+	at org.sonarsource.scanner.cli.Main.execute(Main.java:81)
+	at org.sonarsource.scanner.cli.Main.main(Main.java:62)
+Caused by: java.nio.file.AccessDeniedException: /home/kas/.cache/yay/libdesq-git/pkg
+	at java.base/sun.nio.fs.UnixException.translateToIOException(Unknown Source)
+	at java.base/sun.nio.fs.UnixException.asIOException(Unknown Source)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newDirectoryStream(Unknown Source)
+	at java.base/java.nio.file.Files.newDirectoryStream(Unknown Source)
+	at java.base/java.nio.file.FileTreeWalker.visit(Unknown Source)
+	at java.base/java.nio.file.FileTreeWalker.next(Unknown Source)
+	... 44 more
+ERROR: 
+ERROR: Re-run SonarScanner using the -X switch to enable full debug logging.
+Exception in thread "Thread-0" java.lang.NoClassDefFoundError: ch/qos/logback/classic/spi/ThrowableProxy
+	at ch.qos.logback.classic.spi.LoggingEvent.<init>(LoggingEvent.java:145)
+	at ch.qos.logback.classic.Logger.buildLoggingEventAndAppend(Logger.java:424)
+	at ch.qos.logback.classic.Logger.filterAndLog_0_Or3Plus(Logger.java:386)
+	at ch.qos.logback.classic.Logger.error(Logger.java:543)
+	at org.eclipse.jgit.internal.util.ShutdownHook.cleanup(ShutdownHook.java:87)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.ClassNotFoundException: ch.qos.logback.classic.spi.ThrowableProxy
+	at java.base/java.net.URLClassLoader.findClass(Unknown Source)
+	at org.sonarsource.scanner.api.internal.IsolatedClassloader.loadClass(IsolatedClassloader.java:82)
+	at java.base/java.lang.ClassLoader.loadClass(Unknown Source)
+	... 6 more
+❯ sonar-scanner
+INFO: Scanner configuration file: /opt/sonar-scanner/conf/sonar-scanner.properties
+INFO: Project root configuration file: NONE
+INFO: SonarScanner 5.0.1.3006
+INFO: Java 21.0.2 N/A (64-bit)
+INFO: Linux 6.6.18-1-lts amd64
+INFO: User cache: /home/kas/.sonar/cache
+INFO: Analyzing on SonarQube server 10.5.1.90531
+INFO: Default locale: "en_US", source code encoding: "UTF-8" (analysis is platform dependent)
+INFO: Load global settings
+INFO: Load global settings (done) | time=179ms
+INFO: Server id: 46AF5D23-AY_LO23R_3vtJVGmuK0S
+INFO: User cache: /home/kas/.sonar/cache
+INFO: Loading required plugins
+INFO: Load plugins index
+INFO: Load plugins index (done) | time=147ms
+INFO: Load/download plugins
+INFO: Load/download plugins (done) | time=42ms
+INFO: Process project properties
+INFO: Process project properties (done) | time=7ms
+INFO: Project key: hello
+INFO: Base dir: /home/kas
+INFO: Working dir: /home/kas/.scannerwork
+INFO: Load project settings for component key: 'hello'
+INFO: Load project settings for component key: 'hello' (done) | time=109ms
+INFO: Load quality profiles
+INFO: Load quality profiles (done) | time=168ms
+WARN: SCM provider autodetection failed. Please use "sonar.scm.provider" to define SCM of your project, or disable the SCM Sensor in the project settings.
+INFO: Load active rules
+INFO: Load active rules (done) | time=5174ms
+INFO: Load analysis cache
+INFO: Load analysis cache (404) | time=99ms
+WARN: The properties 'sonar.login' and 'sonar.password' are deprecated and will be removed in the future. Please pass a token with the 'sonar.token' property instead.
+INFO: Preprocessing files...
+INFO: 1 language detected in 1 preprocessed file
+INFO: Loading plugins for detected languages
+INFO: Load/download plugins
+INFO: Load/download plugins (done) | time=0ms
+INFO: Inconsistent constructor declaration on bean with name 'org.sonarsource.scanner.api.internal.IsolatedClassloader@458c1321-org.sonar.scanner.issue.IssueFilters': single autowire-marked constructor flagged as optional - this constructor is effectively required since there is no default constructor to fall back to: public org.sonar.scanner.issue.IssueFilters(org.sonar.api.batch.fs.internal.DefaultInputProject)
+INFO: Load project repositories
+INFO: Load project repositories (done) | time=158ms
+INFO: Indexing files...
+INFO: Project configuration:
+INFO: 1 file indexed
+INFO: Quality profile for py: Sonar way
+INFO: ------------- Run sensors on module hello
+INFO: Load metrics repository
+INFO: Load metrics repository (done) | time=158ms
+INFO: Sensor JaCoCo XML Report Importer [jacoco]
+INFO: 'sonar.coverage.jacoco.xmlReportPaths' is not defined. Using default locations: target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml,build/reports/jacoco/test/jacocoTestReport.xml
+INFO: No report imported, no coverage information will be imported by JaCoCo XML Report Importer
+INFO: Sensor JaCoCo XML Report Importer [jacoco] (done) | time=3ms
+INFO: Sensor Python Sensor [python]
+WARN: Your code is analyzed as compatible with all Python 3 versions by default. You can get a more precise analysis by setting the exact Python version in your configuration via the parameter "sonar.python.version"
+INFO: Starting global symbols computation
+INFO: 1 source file to be analyzed
+INFO: 1/1 source file has been analyzed
+INFO: Starting rules execution
+INFO: 1 source file to be analyzed
+INFO: 1/1 source file has been analyzed
+INFO: The Python analyzer was able to leverage cached data from previous analyses for 0 out of 1 files. These files were not parsed.
+INFO: Sensor Python Sensor [python] (done) | time=508ms
+INFO: Sensor Cobertura Sensor for Python coverage [python]
+INFO: ------------------------------------------------------------------------
+INFO: EXECUTION FAILURE
+INFO: ------------------------------------------------------------------------
+INFO: Total time: 10.376s
+INFO: Final Memory: 19M/68M
+INFO: ------------------------------------------------------------------------
+ERROR: Error during SonarScanner execution
+java.io.UncheckedIOException: java.nio.file.AccessDeniedException: /home/kas/.cache/yay/libdesq-git/pkg
+	at java.base/java.nio.file.FileTreeIterator.fetchNextIfNeeded(Unknown Source)
+	at java.base/java.nio.file.FileTreeIterator.hasNext(Unknown Source)
+	at java.base/java.util.Iterator.forEachRemaining(Unknown Source)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(Unknown Source)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline.collect(Unknown Source)
+	at org.sonarsource.analyzer.commons.FileProvider.getMatchingFiles(FileProvider.java:45)
+	at org.sonar.plugins.python.PythonReportSensor.getReports(PythonReportSensor.java:73)
+	at org.sonar.plugins.python.coverage.PythonCoverageSensor.getCoverageReports(PythonCoverageSensor.java:89)
+	at org.sonar.plugins.python.coverage.PythonCoverageSensor.execute(PythonCoverageSensor.java:77)
+	at org.sonar.scanner.sensor.AbstractSensorWrapper.analyse(AbstractSensorWrapper.java:64)
+	at org.sonar.scanner.sensor.ModuleSensorsExecutor.execute(ModuleSensorsExecutor.java:88)
+	at org.sonar.scanner.sensor.ModuleSensorsExecutor.lambda$execute$1(ModuleSensorsExecutor.java:61)
+	at org.sonar.scanner.sensor.ModuleSensorsExecutor.withModuleStrategy(ModuleSensorsExecutor.java:79)
+	at org.sonar.scanner.sensor.ModuleSensorsExecutor.execute(ModuleSensorsExecutor.java:61)
+	at org.sonar.scanner.scan.SpringModuleScanContainer.doAfterStart(SpringModuleScanContainer.java:82)
+	at org.sonar.core.platform.SpringComponentContainer.startComponents(SpringComponentContainer.java:226)
+	at org.sonar.core.platform.SpringComponentContainer.execute(SpringComponentContainer.java:205)
+	at org.sonar.scanner.scan.SpringProjectScanContainer.scan(SpringProjectScanContainer.java:204)
+	at org.sonar.scanner.scan.SpringProjectScanContainer.scanRecursively(SpringProjectScanContainer.java:200)
+	at org.sonar.scanner.scan.SpringProjectScanContainer.doAfterStart(SpringProjectScanContainer.java:173)
+	at org.sonar.core.platform.SpringComponentContainer.startComponents(SpringComponentContainer.java:226)
+	at org.sonar.core.platform.SpringComponentContainer.execute(SpringComponentContainer.java:205)
+	at org.sonar.scanner.bootstrap.SpringScannerContainer.doAfterStart(SpringScannerContainer.java:351)
+	at org.sonar.core.platform.SpringComponentContainer.startComponents(SpringComponentContainer.java:226)
+	at org.sonar.core.platform.SpringComponentContainer.execute(SpringComponentContainer.java:205)
+	at org.sonar.scanner.bootstrap.SpringGlobalContainer.doAfterStart(SpringGlobalContainer.java:138)
+	at org.sonar.core.platform.SpringComponentContainer.startComponents(SpringComponentContainer.java:226)
+	at org.sonar.core.platform.SpringComponentContainer.execute(SpringComponentContainer.java:205)
+	at org.sonar.batch.bootstrapper.Batch.doExecute(Batch.java:71)
+	at org.sonar.batch.bootstrapper.Batch.execute(Batch.java:65)
+	at org.sonarsource.scanner.api.internal.batch.BatchIsolatedLauncher.execute(BatchIsolatedLauncher.java:46)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.sonarsource.scanner.api.internal.IsolatedLauncherProxy.invoke(IsolatedLauncherProxy.java:60)
+	at jdk.proxy1/jdk.proxy1.$Proxy0.execute(Unknown Source)
+	at org.sonarsource.scanner.api.EmbeddedScanner.doExecute(EmbeddedScanner.java:189)
+	at org.sonarsource.scanner.api.EmbeddedScanner.execute(EmbeddedScanner.java:138)
+	at org.sonarsource.scanner.cli.Main.execute(Main.java:126)
+	at org.sonarsource.scanner.cli.Main.execute(Main.java:81)
+	at org.sonarsource.scanner.cli.Main.main(Main.java:62)
+Caused by: java.nio.file.AccessDeniedException: /home/kas/.cache/yay/libdesq-git/pkg
+	at java.base/sun.nio.fs.UnixException.translateToIOException(Unknown Source)
+	at java.base/sun.nio.fs.UnixException.asIOException(Unknown Source)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newDirectoryStream(Unknown Source)
+	at java.base/java.nio.file.Files.newDirectoryStream(Unknown Source)
+	at java.base/java.nio.file.FileTreeWalker.visit(Unknown Source)
+	at java.base/java.nio.file.FileTreeWalker.next(Unknown Source)
+	... 44 more
+ERROR: 
+ERROR: Re-run SonarScanner using the -X switch to enable full debug logging.
+Exception in thread "Thread-0" java.lang.NoClassDefFoundError: ch/qos/logback/classic/spi/ThrowableProxy
+	at ch.qos.logback.classic.spi.LoggingEvent.<init>(LoggingEvent.java:145)
+	at ch.qos.logback.classic.Logger.buildLoggingEventAndAppend(Logger.java:424)
+	at ch.qos.logback.classic.Logger.filterAndLog_0_Or3Plus(Logger.java:386)
+	at ch.qos.logback.classic.Logger.error(Logger.java:543)
+	at org.eclipse.jgit.internal.util.ShutdownHook.cleanup(ShutdownHook.java:87)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.ClassNotFoundException: ch.qos.logback.classic.spi.ThrowableProxy
+	at java.base/java.net.URLClassLoader.findClass(Unknown Source)
+	at org.sonarsource.scanner.api.internal.IsolatedClassloader.loadClass(IsolatedClassloader.java:82)
+	at java.base/java.lang.ClassLoader.loadClass(Unknown Source)
+	... 6 more
+❯ sudo sonar-scanner
+INFO: Scanner configuration file: /opt/sonar-scanner/conf/sonar-scanner.properties
+INFO: Project root configuration file: NONE
+INFO: SonarScanner 5.0.1.3006
+INFO: Java 21.0.2 N/A (64-bit)
+INFO: Linux 6.6.18-1-lts amd64
+INFO: User cache: /root/.sonar/cache
+INFO: Analyzing on SonarQube server 10.5.1.90531
+INFO: Default locale: "en_US", source code encoding: "UTF-8" (analysis is platform dependent)
+INFO: Load global settings
+INFO: Load global settings (done) | time=183ms
+INFO: Server id: 46AF5D23-AY_LO23R_3vtJVGmuK0S
+INFO: User cache: /root/.sonar/cache
+INFO: Loading required plugins
+INFO: Load plugins index
+INFO: Load plugins index (done) | time=141ms
+INFO: Load/download plugins
+INFO: Load/download plugins (done) | time=52ms
+INFO: Process project properties
+INFO: Process project properties (done) | time=7ms
+INFO: Project key: hello
+INFO: Base dir: /home/kas
+INFO: Working dir: /home/kas/.scannerwork
+INFO: Load project settings for component key: 'hello'
+INFO: Load project settings for component key: 'hello' (done) | time=119ms
+INFO: Load quality profiles
+INFO: Load quality profiles (done) | time=195ms
+WARN: SCM provider autodetection failed. Please use "sonar.scm.provider" to define SCM of your project, or disable the SCM Sensor in the project settings.
+INFO: Load active rules
+INFO: Load active rules (done) | time=4892ms
+INFO: Load analysis cache
+INFO: Load analysis cache (404) | time=141ms
+WARN: The properties 'sonar.login' and 'sonar.password' are deprecated and will be removed in the future. Please pass a token with the 'sonar.token' property instead.
+INFO: Preprocessing files...
+INFO: 1 language detected in 1 preprocessed file
+INFO: Loading plugins for detected languages
+INFO: Load/download plugins
+INFO: Load/download plugins (done) | time=0ms
+INFO: Inconsistent constructor declaration on bean with name 'org.sonarsource.scanner.api.internal.IsolatedClassloader@458c1321-org.sonar.scanner.issue.IssueFilters': single autowire-marked constructor flagged as optional - this constructor is effectively required since there is no default constructor to fall back to: public org.sonar.scanner.issue.IssueFilters(org.sonar.api.batch.fs.internal.DefaultInputProject)
+INFO: Load project repositories
+INFO: Load project repositories (done) | time=165ms
+INFO: Indexing files...
+INFO: Project configuration:
+INFO: 1 file indexed
+INFO: Quality profile for py: Sonar way
+INFO: ------------- Run sensors on module hello
+INFO: Load metrics repository
+INFO: Load metrics repository (done) | time=109ms
+INFO: Sensor JaCoCo XML Report Importer [jacoco]
+INFO: 'sonar.coverage.jacoco.xmlReportPaths' is not defined. Using default locations: target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml,build/reports/jacoco/test/jacocoTestReport.xml
+INFO: No report imported, no coverage information will be imported by JaCoCo XML Report Importer
+INFO: Sensor JaCoCo XML Report Importer [jacoco] (done) | time=2ms
+INFO: Sensor Python Sensor [python]
+WARN: Your code is analyzed as compatible with all Python 3 versions by default. You can get a more precise analysis by setting the exact Python version in your configuration via the parameter "sonar.python.version"
+INFO: Starting global symbols computation
+INFO: 1 source file to be analyzed
+INFO: 1/1 source file has been analyzed
+INFO: Starting rules execution
+INFO: 1 source file to be analyzed
+INFO: 1/1 source file has been analyzed
+INFO: The Python analyzer was able to leverage cached data from previous analyses for 0 out of 1 files. These files were not parsed.
+INFO: Sensor Python Sensor [python] (done) | time=521ms
+INFO: Sensor Cobertura Sensor for Python coverage [python]
+INFO: Sensor Cobertura Sensor for Python coverage [python] (done) | time=6677ms
+INFO: Sensor PythonXUnitSensor [python]
+INFO: Sensor PythonXUnitSensor [python] (done) | time=4459ms
+INFO: Sensor IaC Docker Sensor [iac]
+INFO: 0 source files to be analyzed
+INFO: 0/0 source files have been analyzed
+INFO: Sensor IaC Docker Sensor [iac] (done) | time=61ms
+INFO: Sensor TextAndSecretsSensor [text]
+INFO: Available processors: 16
+INFO: Using 16 threads for analysis.
+INFO: 1 source file to be analyzed
+INFO: 1/1 source file has been analyzed
+INFO: Sensor TextAndSecretsSensor [text] (done) | time=317ms
+INFO: ------------- Run sensors on project
+INFO: Sensor Zero Coverage Sensor
+INFO: Sensor Zero Coverage Sensor (done) | time=8ms
+INFO: SCM Publisher No SCM system was detected. You can use the 'sonar.scm.provider' property to explicitly specify it.
+INFO: CPD Executor Calculating CPD for 1 file
+INFO: CPD Executor CPD calculation finished (done) | time=8ms
+INFO: Analysis report generated in 58ms, dir size=198.0 kB
+INFO: Analysis report compressed in 15ms, zip size=23.3 kB
+INFO: Analysis report uploaded in 133ms
+INFO: ANALYSIS SUCCESSFUL, you can find the results at: http://localhost:9000/dashboard?id=hello
+INFO: Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+INFO: More about the report processing at http://localhost:9000/api/ce/task?id=59619bdd-1671-4b86-9ecd-03b191489d34
+INFO: Analysis total time: 19.023 s
+INFO: ------------------------------------------------------------------------
+INFO: EXECUTION SUCCESS
+INFO: ------------------------------------------------------------------------
+INFO: Total time: 20.179s
+INFO: Final Memory: 21M/74M
+INFO: ------------------------------------------------------------------------
+Exception in thread "Thread-0" java.lang.NoClassDefFoundError: ch/qos/logback/classic/spi/ThrowableProxy
+	at ch.qos.logback.classic.spi.LoggingEvent.<init>(LoggingEvent.java:145)
+	at ch.qos.logback.classic.Logger.buildLoggingEventAndAppend(Logger.java:424)
+	at ch.qos.logback.classic.Logger.filterAndLog_0_Or3Plus(Logger.java:386)
+	at ch.qos.logback.classic.Logger.error(Logger.java:543)
+	at org.eclipse.jgit.internal.util.ShutdownHook.cleanup(ShutdownHook.java:87)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.ClassNotFoundException: ch.qos.logback.classic.spi.ThrowableProxy
+	at java.base/java.net.URLClassLoader.findClass(Unknown Source)
+	at org.sonarsource.scanner.api.internal.IsolatedClassloader.loadClass(IsolatedClassloader.java:82)
+	at java.base/java.lang.ClassLoader.loadClass(Unknown Source)
+	... 6 more

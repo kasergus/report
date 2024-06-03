@@ -1,0 +1,360 @@
+❯ sudo docker-compose up
+[+] Running 2/0
+ ✔ Container postgres  Created                                                                                                                                   0.0s 
+ ✔ Container sonar     Created                                                                                                                                   0.0s 
+Attaching to postgres, sonar
+postgres  | 
+postgres  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+postgres  | 
+postgres  | 2024-06-03 09:41:11.053 UTC [1] LOG:  starting PostgreSQL 16.3 (Debian 16.3-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+postgres  | 2024-06-03 09:41:11.053 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres  | 2024-06-03 09:41:11.053 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres  | 2024-06-03 09:41:11.062 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres  | 2024-06-03 09:41:11.076 UTC [29] LOG:  database system was shut down at 2024-05-30 22:23:06 UTC
+postgres  | 2024-06-03 09:41:11.089 UTC [1] LOG:  database system is ready to accept connections
+sonar     | 2024.06.03 09:41:11 INFO  app[][o.s.a.AppFileSystem] Cleaning or creating temp directory /opt/sonarqube/temp
+sonar     | 2024.06.03 09:41:11 INFO  app[][o.s.a.es.EsSettings] Elasticsearch listening on [HTTP: 127.0.0.1:9001, TCP: 127.0.0.1:35249]
+sonar     | 2024.06.03 09:41:11 INFO  app[][o.s.a.ProcessLauncherImpl] Launch process[ELASTICSEARCH] from [/opt/sonarqube/elasticsearch]: /opt/java/openjdk/bin/java -Xms4m -Xmx64m -XX:+UseSerialGC -Dcli.name=server -Dcli.script=./bin/elasticsearch -Dcli.libs=lib/tools/server-cli -Des.path.home=/opt/sonarqube/elasticsearch -Des.path.conf=/opt/sonarqube/temp/conf/es -Des.distribution.type=tar -cp /opt/sonarqube/elasticsearch/lib/*:/opt/sonarqube/elasticsearch/lib/cli-launcher/* org.elasticsearch.launcher.CliToolLauncher
+sonar     | 2024.06.03 09:41:11 INFO  app[][o.s.a.SchedulerImpl] Waiting for Elasticsearch to be up and running
+sonar     | 2024.06.03 09:41:13 INFO  es[][o.e.n.Node] version[8.11.0], pid[143], build[tar/d9ec3fa628c7b0ba3d25692e277ba26814820b20/2023-11-04T10:04:57.184859352Z], OS[Linux/6.6.18-1-lts/amd64], JVM[Eclipse Adoptium/OpenJDK 64-Bit Server VM/17.0.11/17.0.11+9]
+sonar     | 2024.06.03 09:41:13 INFO  es[][o.e.n.Node] JVM home [/opt/java/openjdk], using bundled JDK [false]
+sonar     | 2024.06.03 09:41:13 INFO  es[][o.e.n.Node] JVM arguments [-Des.networkaddress.cache.ttl=60, -Des.networkaddress.cache.negative.ttl=10, -Djava.security.manager=allow, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -XX:-OmitStackTraceInFastThrow, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j2.formatMsgNoLookups=true, -Djava.locale.providers=SPI,COMPAT, --add-opens=java.base/java.io=org.elasticsearch.preallocate, -XX:+UseG1GC, -Djava.io.tmpdir=/opt/sonarqube/temp, -XX:ErrorFile=/opt/sonarqube/logs/es_hs_err_pid%p.log, -Xlog:disable, -Des.networkaddress.cache.ttl=60, -Des.networkaddress.cache.negative.ttl=10, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -Djna.tmpdir=/opt/sonarqube/temp, -XX:-OmitStackTraceInFastThrow, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dio.netty.allocator.numDirectArenas=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j2.formatMsgNoLookups=true, -Djava.locale.providers=COMPAT, -Dcom.redhat.fips=false, -Xmx512m, -Xms512m, -XX:MaxDirectMemorySize=256m, -XX:+HeapDumpOnOutOfMemoryError, -Dnode.store.allow_mmap=false, -XX:G1HeapRegionSize=4m, -XX:InitiatingHeapOccupancyPercent=30, -XX:G1ReservePercent=15, -Des.distribution.type=tar, --module-path=/opt/sonarqube/elasticsearch/lib, --add-modules=jdk.net, --add-modules=ALL-MODULE-PATH, -Djdk.module.main=org.elasticsearch.server]
+sonar     | 2024.06.03 09:41:14 INFO  es[][o.e.p.PluginsService] loaded module [x-pack-core]
+sonar     | 2024.06.03 09:41:14 INFO  es[][o.e.p.PluginsService] loaded module [old-lucene-versions]
+sonar     | 2024.06.03 09:41:14 INFO  es[][o.e.p.PluginsService] loaded module [parent-join]
+sonar     | 2024.06.03 09:41:14 INFO  es[][o.e.p.PluginsService] loaded module [lang-painless]
+sonar     | 2024.06.03 09:41:14 INFO  es[][o.e.p.PluginsService] loaded module [rest-root]
+sonar     | 2024.06.03 09:41:14 INFO  es[][o.e.p.PluginsService] loaded module [reindex]
+sonar     | 2024.06.03 09:41:14 INFO  es[][o.e.p.PluginsService] loaded module [x-pack-redact]
+sonar     | 2024.06.03 09:41:14 INFO  es[][o.e.p.PluginsService] loaded module [analysis-common]
+sonar     | 2024.06.03 09:41:14 INFO  es[][o.e.p.PluginsService] loaded module [x-pack-security]
+sonar     | 2024.06.03 09:41:14 INFO  es[][o.e.p.PluginsService] loaded module [transport-netty4]
+sonar     | 2024.06.03 09:41:14 INFO  es[][o.e.p.PluginsService] loaded module [aggregations]
+sonar     | 2024.06.03 09:41:14 INFO  es[][o.e.p.PluginsService] loaded module [apm]
+sonar     | 2024.06.03 09:41:16 INFO  es[][o.e.e.NodeEnvironment] using [1] data paths, mounts [[/opt/sonarqube/data (/dev/nvme0n1p9)]], net usable_space [9.5gb], net total_space [77.7gb], types [ext4]
+sonar     | 2024.06.03 09:41:16 INFO  es[][o.e.e.NodeEnvironment] heap size [512mb], compressed ordinary object pointers [true]
+sonar     | 2024.06.03 09:41:16 INFO  es[][o.e.n.Node] node name [sonarqube], node ID [Q4D8qr6mRrWpZGOYB4JVMQ], cluster name [sonarqube], roles [transform, data_content, data_warm, master, remote_cluster_client, data, data_cold, ingest, data_frozen, ml, data_hot]
+sonar     | 2024.06.03 09:41:17 INFO  es[][o.e.x.s.Security] Security is disabled
+sonar     | 2024.06.03 09:41:17 INFO  es[][o.e.t.n.NettyAllocator] creating NettyAllocator with the following configs: [name=unpooled, suggested_max_allocation_size=1mb, factors={es.unsafe.use_unpooled_allocator=null, g1gc_enabled=true, g1gc_region_size=4mb, heap_size=512mb}]
+sonar     | 2024.06.03 09:41:17 INFO  es[][o.e.i.r.RecoverySettings] using rate limit [40mb] with [default=40mb, read=0b, write=0b, max=0b]
+sonar     | 2024.06.03 09:41:17 INFO  es[][o.e.d.DiscoveryModule] using discovery type [single-node] and seed hosts providers [settings]
+sonar     | 2024.06.03 09:41:18 INFO  es[][o.e.n.Node] initialized
+sonar     | 2024.06.03 09:41:18 INFO  es[][o.e.n.Node] starting ...
+sonar     | 2024.06.03 09:41:18 INFO  es[][o.e.t.TransportService] publish_address {127.0.0.1:35249}, bound_addresses {127.0.0.1:35249}
+sonar     | 2024.06.03 09:41:18 INFO  es[][o.e.c.c.ClusterBootstrapService] this node is locked into cluster UUID [dmFS6zIaSrKbgOq7ecsHlw] and will not attempt further cluster bootstrapping
+sonar     | 2024.06.03 09:41:18 INFO  es[][o.e.c.s.MasterService] elected-as-master ([1] nodes joined in term 4)[_FINISH_ELECTION_, {sonarqube}{Q4D8qr6mRrWpZGOYB4JVMQ}{bWa5wlfrQ567ETglAlLWIw}{sonarqube}{127.0.0.1}{127.0.0.1:35249}{cdfhilmrstw}{8.11.0}{7000099-8500003} completing election], term: 4, version: 94, delta: master node changed {previous [], current [{sonarqube}{Q4D8qr6mRrWpZGOYB4JVMQ}{bWa5wlfrQ567ETglAlLWIw}{sonarqube}{127.0.0.1}{127.0.0.1:35249}{cdfhilmrstw}{8.11.0}{7000099-8500003}]}
+sonar     | 2024.06.03 09:41:18 INFO  es[][o.e.c.s.ClusterApplierService] master node changed {previous [], current [{sonarqube}{Q4D8qr6mRrWpZGOYB4JVMQ}{bWa5wlfrQ567ETglAlLWIw}{sonarqube}{127.0.0.1}{127.0.0.1:35249}{cdfhilmrstw}{8.11.0}{7000099-8500003}]}, term: 4, version: 94, reason: Publication{term=4, version=94}
+sonar     | 2024.06.03 09:41:18 INFO  es[][o.e.c.f.AbstractFileWatchingService] starting file watcher ...
+sonar     | 2024.06.03 09:41:18 INFO  es[][o.e.c.f.AbstractFileWatchingService] file settings service up and running [tid=47]
+sonar     | 2024.06.03 09:41:18 INFO  es[][o.e.h.AbstractHttpServerTransport] publish_address {127.0.0.1:9001}, bound_addresses {127.0.0.1:9001}
+sonar     | 2024.06.03 09:41:18 INFO  es[][o.e.c.c.NodeJoinExecutor] node-join: [{sonarqube}{Q4D8qr6mRrWpZGOYB4JVMQ}{bWa5wlfrQ567ETglAlLWIw}{sonarqube}{127.0.0.1}{127.0.0.1:35249}{cdfhilmrstw}{8.11.0}{7000099-8500003}] with reason [completing election]
+sonar     | 2024.06.03 09:41:18 INFO  es[][o.e.n.Node] started {sonarqube}{Q4D8qr6mRrWpZGOYB4JVMQ}{bWa5wlfrQ567ETglAlLWIw}{sonarqube}{127.0.0.1}{127.0.0.1:35249}{cdfhilmrstw}{8.11.0}{7000099-8500003}{xpack.installed=true, rack_id=sonarqube}
+sonar     | 2024.06.03 09:41:18 INFO  es[][o.e.l.ClusterStateLicenseService] license [64e3d38a-813f-43f3-84be-910514230ea6] mode [basic] - valid
+sonar     | 2024.06.03 09:41:18 INFO  es[][o.e.g.GatewayService] recovered [6] indices into cluster_state
+sonar     | 2024.06.03 09:41:19 INFO  es[][o.e.i.m.MapperService] reloading search analyzers
+sonar     | 2024.06.03 09:41:19 INFO  es[][o.e.h.n.s.HealthNodeTaskExecutor] Node [{sonarqube}{Q4D8qr6mRrWpZGOYB4JVMQ}] is selected as the current health node.
+sonar     | 2024.06.03 09:41:19 INFO  es[][o.e.i.m.MapperService] reloading search analyzers
+sonar     | 2024.06.03 09:41:19 INFO  es[][o.e.i.m.MapperService] reloading search analyzers
+sonar     | 2024.06.03 09:41:19 INFO  es[][o.e.i.m.MapperService] reloading search analyzers
+sonar     | 2024.06.03 09:41:19 INFO  es[][o.e.i.m.MapperService] reloading search analyzers
+sonar     | 2024.06.03 09:41:20 INFO  es[][o.e.i.m.MapperService] reloading search analyzers
+sonar     | 2024.06.03 09:41:20 INFO  es[][o.e.c.r.a.AllocationService] current.health="GREEN" message="Cluster health status changed from [RED] to [GREEN] (reason: [shards started [[metadatas][0]]])." previous.health="RED" reason="shards started [[metadatas][0]]"
+sonar     | 2024.06.03 09:41:20 INFO  app[][o.s.a.SchedulerImpl] Process[es] is up
+sonar     | 2024.06.03 09:41:20 INFO  app[][o.s.a.ProcessLauncherImpl] Launch process[WEB_SERVER] from [/opt/sonarqube]: /opt/java/openjdk/bin/java -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/opt/sonarqube/temp -XX:-OmitStackTraceInFastThrow --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED --add-exports=java.base/jdk.internal.ref=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.management/sun.management=ALL-UNNAMED --add-opens=jdk.management/com.sun.management.internal=ALL-UNNAMED -Dcom.redhat.fips=false -Xmx512m -Xms128m -XX:+HeapDumpOnOutOfMemoryError -Dhttp.nonProxyHosts=localhost|127.*|[::1] -cp ./lib/sonar-application-10.5.1.90531.jar:/opt/sonarqube/lib/jdbc/postgresql/postgresql-42.7.1.jar org.sonar.server.app.WebServer /opt/sonarqube/temp/sq-process13577704434532926299properties
+sonar     | WARNING: A terminally deprecated method in java.lang.System has been called
+sonar     | WARNING: System::setSecurityManager has been called by org.sonar.process.PluginSecurityManager (file:/opt/sonarqube/lib/sonar-application-10.5.1.90531.jar)
+sonar     | WARNING: Please consider reporting this to the maintainers of org.sonar.process.PluginSecurityManager
+sonar     | WARNING: System::setSecurityManager will be removed in a future release
+sonar     | 2024.06.03 09:41:20 INFO  web[][o.s.p.ProcessEntryPoint] Starting Web Server
+sonar     | 2024.06.03 09:41:20 INFO  web[][o.s.s.a.TomcatHttpConnectorFactory] Starting Tomcat on port 9000
+sonar     | 2024.06.03 09:41:21 INFO  web[][o.s.s.p.LogServerVersion] SonarQube Server / 10.5.1.90531 / a69dd88808638ec33015277e236bca319314ce8b
+sonar     | 2024.06.03 09:41:21 INFO  web[][o.s.d.DefaultDatabase] Create JDBC data source for jdbc:postgresql://postgres:5432/sonar
+sonar     | 2024.06.03 09:41:21 INFO  web[][c.z.h.HikariDataSource] HikariPool-1 - Starting...
+sonar     | 2024.06.03 09:41:22 INFO  web[][c.z.h.p.HikariPool] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@529cfee5
+sonar     | 2024.06.03 09:41:22 INFO  web[][c.z.h.HikariDataSource] HikariPool-1 - Start completed.
+sonar     | 2024.06.03 09:41:23 INFO  web[][o.s.s.p.ServerFileSystemImpl] SonarQube home: /opt/sonarqube
+sonar     | 2024.06.03 09:41:23 INFO  web[][o.s.s.u.SystemPasscodeImpl] System authentication by passcode is disabled
+sonar     | 2024.06.03 09:41:23 INFO  web[][o.s.s.p.ServerPluginManager] Deploy C# Code Quality and Security / 9.23.2.88755 / 7727153bb92db16ac5dedac33bfbbe6bb51e9666
+sonar     | 2024.06.03 09:41:23 INFO  web[][o.s.s.p.ServerPluginManager] Deploy Clean as You Code / 2.3.0.1782 / 1db4e32c08cf9d0b999498e7ba4fd5849583dfdd
+sonar     | 2024.06.03 09:41:23 INFO  web[][o.s.s.p.ServerPluginManager] Deploy Flex Code Quality and Security / 2.12.0.4568 / e8b2821a05db57b79b8ae85e3db1571f5b744273
+sonar     | 2024.06.03 09:41:23 INFO  web[][o.s.s.p.ServerPluginManager] Deploy Go Code Quality and Security / 1.15.0.4655 / 28938525c4093d5e9fa4e858535bbcb60af7f066
+sonar     | 2024.06.03 09:41:23 INFO  web[][o.s.s.p.ServerPluginManager] Deploy HTML Code Quality and Security / 3.15.0.5107 / 2b98639c1367f85365fef88c2ba41ae5f19dfd66
+sonar     | 2024.06.03 09:41:23 INFO  web[][o.s.s.p.ServerPluginManager] Deploy IaC Code Quality and Security / 1.27.0.9518 / null
+sonar     | 2024.06.03 09:41:23 INFO  web[][o.s.s.p.ServerPluginManager] Deploy JaCoCo / 1.3.0.1538 / 74a7798c7cea687c72ed9df40c93eb7ea2a58c49
+sonar     | 2024.06.03 09:41:23 INFO  web[][o.s.s.p.ServerPluginManager] Deploy Java Code Quality and Security / 7.33.0.35775 / 0614cc7e6978a72c551bd3116b14036eb3ae991e
+sonar     | 2024.06.03 09:41:23 INFO  web[][o.s.s.p.ServerPluginManager] Deploy JavaScript/TypeScript/CSS Code Quality and Security / 10.13.2.25981 / 5950215f3a0c4790a0fa13b26d5040f60f3eab2c
+sonar     | 2024.06.03 09:41:23 INFO  web[][o.s.s.p.ServerPluginManager] Deploy Kotlin Code Quality and Security / 2.20.0.4382 / eb22cc4ed915de84e358135dd3f2ea2080de1441
+sonar     | 2024.06.03 09:41:23 INFO  web[][o.s.s.p.ServerPluginManager] Deploy PHP Code Quality and Security / 3.35.0.11659 / d830de9e38c9269851c1afefe12b8324c1481baf
+sonar     | 2024.06.03 09:41:23 INFO  web[][o.s.s.p.ServerPluginManager] Deploy Python Code Quality and Security / 4.17.0.14845 / 60c11ea38cb028885067563b4ea10f4b031c697a
+sonar     | 2024.06.03 09:41:23 INFO  web[][o.s.s.p.ServerPluginManager] Deploy Ruby Code Quality and Security / 1.15.0.4655 / 28938525c4093d5e9fa4e858535bbcb60af7f066
+sonar     | 2024.06.03 09:41:23 INFO  web[][o.s.s.p.ServerPluginManager] Deploy Scala Code Quality and Security / 1.15.0.4655 / 28938525c4093d5e9fa4e858535bbcb60af7f066
+sonar     | 2024.06.03 09:41:23 INFO  web[][o.s.s.p.ServerPluginManager] Deploy Text Code Quality and Security / 2.10.0.2188 / null
+sonar     | 2024.06.03 09:41:23 INFO  web[][o.s.s.p.ServerPluginManager] Deploy VB.NET Code Quality and Security / 9.23.2.88755 / 7727153bb92db16ac5dedac33bfbbe6bb51e9666
+sonar     | 2024.06.03 09:41:23 INFO  web[][o.s.s.p.ServerPluginManager] Deploy XML Code Quality and Security / 2.10.0.4108 / 34b16ba369117f6befc0b1e0866a069a80f6db2e
+sonar     | 2024.06.03 09:41:24 INFO  web[][o.s.s.p.d.m.c.PostgresCharsetHandler] Verify that database charset supports UTF8
+sonar     | 2024.06.03 09:41:24 INFO  web[][o.s.s.e.EsClientProvider] Connected to local Elasticsearch: [http://localhost:9001]
+sonar     | 2024.06.03 09:41:24 WARN  web[][o.s.a.s.w.WebService$Action] Description is not set on action api/monitoring/metrics
+sonar     | 2024.06.03 09:41:24 WARN  web[][o.s.a.s.w.WebService$Action] Since is not set on action api/monitoring/metrics
+sonar     | 2024.06.03 09:41:24 WARN  web[][o.s.a.s.w.WebService$Action] The response example is not set on action api/monitoring/metrics
+sonar     | 2024.06.03 09:41:24 WARN  web[][o.s.a.s.w.WebService$Action] The response example is not set on action api/system/liveness
+sonar     | 2024.06.03 09:41:25 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.platform.web.WebServiceFilter@34a6d9db [pattern=UrlPattern{inclusions=[/api/system/migrate_db.*, ...], exclusions=[/api/components/update_key, ...]}]
+sonar     | 2024.06.03 09:41:25 INFO  web[][o.s.s.p.DetectPluginChange] Detect plugin changes
+sonar     | 2024.06.03 09:41:25 INFO  web[][o.s.s.p.DetectPluginChange] No plugin change detected
+sonar     | 2024.06.03 09:41:26 INFO  web[][o.h.v.i.util.Version] HV000001: Hibernate Validator null
+sonar     | 2024.06.03 09:41:26 INFO  web[][o.s.s.s.LogServerId] Server ID: 46AF5D23-AY_LO23R_3vtJVGmuK0S
+sonar     | 2024.06.03 09:41:27 WARN  web[][o.s.s.a.LogOAuthWarning] For security reasons, OAuth authentication should use HTTPS. You should set the property 'Administration > Configuration > Server base URL' to an HTTPS URL.
+sonar     | 2024.06.03 09:41:27 INFO  web[][o.s.s.p.UpdateCenterClient] Update center: https://downloads.sonarsource.com/sonarqube/update/update-center.properties
+sonar     | 2024.06.03 09:41:28 WARN  web[][o.s.a.s.w.WebService$Action] The response example is not set on action saml/validation_init
+sonar     | 2024.06.03 09:41:28 WARN  web[][o.s.a.s.w.WebService$Action] The response example is not set on action api/system/liveness
+sonar     | 2024.06.03 09:41:28 WARN  web[][o.s.a.s.w.WebService$Action] The response example is not set on action api/plugins/download
+sonar     | 2024.06.03 09:41:28 WARN  web[][o.s.a.s.w.WebService$Action] The response example is not set on action api/analysis_cache/get
+sonar     | 2024.06.03 09:41:28 WARN  web[][o.s.a.s.w.WebService$Action] The response example is not set on action api/alm_integrations/check_pat
+sonar     | 2024.06.03 09:41:28 WARN  web[][o.s.a.s.w.WebService$Action] The response example is not set on action api/push/sonarlint_events
+sonar     | 2024.06.03 09:41:28 WARN  web[][o.s.a.s.w.WebService$Action] The response example is not set on action api/dismiss_message/check
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.a.p.ExpiredSessionsCleaner] Purge of expired session tokens has removed 3 elements
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.a.p.ExpiredSessionsCleaner] Purge of expired SAML message ids has removed 0 elements
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.n.NotificationDaemon] Notification service started (delay 60 sec.)
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.t.TelemetryDaemon] Sharing of SonarQube statistics is enabled.
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.s.RegisterPermissionTemplates] Register permission templates
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.s.RenameDeprecatedPropertyKeys] Rename deprecated property keys
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.s.RegisterPlugins] Register plugins
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.platform.web.SonarLintConnectionFilter@3c0b39b2 [pattern=UrlPattern{inclusions=[/api/*], exclusions=[/api/v2/*]}]
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.platform.web.WebServiceFilter@2927cb59 [pattern=UrlPattern{inclusions=[/api/issues/delete_comment.*, ...], exclusions=[/api/authentication/login.*, ...]}]
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.platform.web.WebServiceReroutingFilter@39e7f325 [pattern=UrlPattern{inclusions=[/api/components/bulk_update_key, ...], exclusions=[]}]
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.authentication.DefaultAdminCredentialsVerifierFilter@108245e1 [pattern=UrlPattern{inclusions=[/*], exclusions=[*.css, ...]}]
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.authentication.InitFilter@752138ea [pattern=UrlPattern{inclusions=[/sessions/init/*], exclusions=[]}]
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.authentication.SamlValidationRedirectionFilter@624b5814 [pattern=UrlPattern{inclusions=[/oauth2/callback/saml], exclusions=[]}]
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.authentication.OAuth2CallbackFilter@64b3e1a3 [pattern=UrlPattern{inclusions=[/oauth2/callback/*], exclusions=[]}]
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.authentication.ResetPasswordFilter@669c0d99 [pattern=UrlPattern{inclusions=[/*], exclusions=[*.css, ...]}]
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.authentication.ws.LoginAction@693e937 [pattern=UrlPattern{inclusions=[/api/authentication/login], exclusions=[]}]
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.authentication.ws.LogoutAction@279a4d33 [pattern=UrlPattern{inclusions=[/api/authentication/logout], exclusions=[]}]
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.authentication.ws.ValidateAction@4d3baa23 [pattern=UrlPattern{inclusions=[/api/authentication/validate], exclusions=[]}]
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.saml.ws.ValidationInitAction@5e4037df [pattern=UrlPattern{inclusions=[/saml/validation_init], exclusions=[]}]
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.saml.ws.ValidationAction@2b461af1 [pattern=UrlPattern{inclusions=[/saml/validation], exclusions=[]}]
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.user.ws.ChangePasswordAction@1a869fc8 [pattern=UrlPattern{inclusions=[/api/users/change_password], exclusions=[]}]
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.plugins.PluginsRiskConsentFilter@22b5ef74 [pattern=UrlPattern{inclusions=[/*], exclusions=[*.css, ...]}]
+sonar     | 2024.06.03 09:41:28 INFO  web[][o.s.s.p.p.PlatformLevelStartup] Running Community Edition
+sonar     | 2024.06.03 09:41:29 INFO  app[][o.s.a.SchedulerImpl] Process[web] is up
+sonar     | 2024.06.03 09:41:29 INFO  app[][o.s.a.ProcessLauncherImpl] Launch process[COMPUTE_ENGINE] from [/opt/sonarqube]: /opt/java/openjdk/bin/java -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/opt/sonarqube/temp -XX:-OmitStackTraceInFastThrow --add-opens=java.base/java.util=ALL-UNNAMED --add-exports=java.base/jdk.internal.ref=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.management/sun.management=ALL-UNNAMED --add-opens=jdk.management/com.sun.management.internal=ALL-UNNAMED -Dcom.redhat.fips=false -Xmx512m -Xms128m -XX:+HeapDumpOnOutOfMemoryError -Dhttp.nonProxyHosts=localhost|127.*|[::1] -cp ./lib/sonar-application-10.5.1.90531.jar:/opt/sonarqube/lib/jdbc/postgresql/postgresql-42.7.1.jar org.sonar.ce.app.CeServer /opt/sonarqube/temp/sq-process1481091548940501033properties
+sonar     | 2024.06.03 09:41:29 INFO  web[][o.s.s.p.Platform] Web Server is operational
+sonar     | WARNING: A terminally deprecated method in java.lang.System has been called
+sonar     | WARNING: System::setSecurityManager has been called by org.sonar.process.PluginSecurityManager (file:/opt/sonarqube/lib/sonar-application-10.5.1.90531.jar)
+sonar     | WARNING: Please consider reporting this to the maintainers of org.sonar.process.PluginSecurityManager
+sonar     | WARNING: System::setSecurityManager will be removed in a future release
+sonar     | 2024.06.03 09:41:29 INFO  ce[][o.s.p.ProcessEntryPoint] Starting Compute Engine
+sonar     | 2024.06.03 09:41:29 INFO  ce[][o.s.ce.app.CeServer] Compute Engine starting up...
+sonar     | 2024.06.03 09:41:29 INFO  ce[][o.s.d.DefaultDatabase] Create JDBC data source for jdbc:postgresql://postgres:5432/sonar
+sonar     | 2024.06.03 09:41:29 INFO  ce[][c.z.h.HikariDataSource] HikariPool-1 - Starting...
+sonar     | 2024.06.03 09:41:29 INFO  ce[][c.z.h.p.HikariPool] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@66190bb5
+sonar     | 2024.06.03 09:41:29 INFO  ce[][c.z.h.HikariDataSource] HikariPool-1 - Start completed.
+sonar     | 2024.06.03 09:41:30 INFO  ce[][o.s.s.p.ServerFileSystemImpl] SonarQube home: /opt/sonarqube
+sonar     | 2024.06.03 09:41:31 INFO  ce[][o.s.c.c.CePluginRepository] Load plugins
+sonar     | 2024.06.03 09:41:32 INFO  ce[][o.s.c.c.ComputeEngineContainerImpl] Running Community edition
+sonar     | 2024.06.03 09:41:32 INFO  ce[][o.s.ce.app.CeServer] Compute Engine is started
+sonar     | 2024.06.03 09:41:32 INFO  app[][o.s.a.SchedulerImpl] Process[ce] is up
+sonar     | 2024.06.03 09:41:32 INFO  app[][o.s.a.SchedulerImpl] SonarQube is operational
+sonar     | 2024.06.03 09:41:48 INFO  es[][o.e.c.r.a.DiskThresholdMonitor] low disk watermark [85%] exceeded on [Q4D8qr6mRrWpZGOYB4JVMQ][sonarqube][/opt/sonarqube/data/es8] free: 9.4gb[12.2%], replicas will not be assigned to this node
+postgres  | 2024-06-03 09:46:11.151 UTC [27] LOG:  checkpoint starting: time
+postgres  | 2024-06-03 09:46:12.024 UTC [27] LOG:  checkpoint complete: wrote 11 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.815 s, sync=0.017 s, total=0.873 s; sync files=10, longest=0.013 s, average=0.002 s; distance=6 kB, estimate=6 kB; lsn=0/45D51D0, redo lsn=0/45D5198
+postgres  | 2024-06-03 09:51:11.055 UTC [27] LOG:  checkpoint starting: time
+postgres  | 2024-06-03 09:51:11.938 UTC [27] LOG:  checkpoint complete: wrote 9 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.808 s, sync=0.034 s, total=0.883 s; sync files=9, longest=0.019 s, average=0.004 s; distance=5 kB, estimate=6 kB; lsn=0/45D6630, redo lsn=0/45D65F8
+sonar     | 2024.06.03 09:53:17 INFO  ce[][o.s.c.t.CeWorkerImpl] Execute task | project=hello | type=REPORT | id=59619bdd-1671-4b86-9ecd-03b191489d34 | submitter=admin
+sonar     | 2024.06.03 09:53:18 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Extract report | status=SUCCESS | time=8ms
+sonar     | 2024.06.03 09:53:18 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Persist scanner context | status=SUCCESS | time=15ms
+sonar     | 2024.06.03 09:53:18 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Propagate analysis warnings from scanner report | status=SUCCESS | time=22ms
+sonar     | 2024.06.03 09:53:18 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Generate analysis UUID | status=SUCCESS | time=1ms
+sonar     | 2024.06.03 09:53:18 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Load analysis metadata | status=SUCCESS | time=60ms
+sonar     | 2024.06.03 09:53:18 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Initialize | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 09:53:18 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Build tree of components | components=3 | status=SUCCESS | time=26ms
+sonar     | 2024.06.03 09:53:18 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Validate project | status=SUCCESS | time=3ms
+sonar     | 2024.06.03 09:53:18 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.s.e.EsClientProvider] Connected to local Elasticsearch: [http://localhost:9001]
+sonar     | 2024.06.03 09:53:19 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Load quality profiles | status=SUCCESS | time=1311ms
+sonar     | 2024.06.03 09:53:19 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Checks executed before computation of measures | status=SUCCESS | time=1ms
+sonar     | 2024.06.03 09:53:19 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Generate SQ Upgrade analysis events | status=SUCCESS | time=4ms
+sonar     | 2024.06.03 09:53:19 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Load file hashes and statuses | status=SUCCESS | time=4ms
+sonar     | 2024.06.03 09:53:19 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Load Quality gate | status=SUCCESS | time=10ms
+sonar     | 2024.06.03 09:53:19 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Load new code period | status=SUCCESS | time=5ms
+sonar     | 2024.06.03 09:53:19 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Detect file moves | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 09:53:19 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Detect file moves in Pull Request scope | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 09:53:19 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Load duplications | duplications=0 | status=SUCCESS | time=3ms
+sonar     | 2024.06.03 09:53:19 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Compute cross project duplications | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 09:53:19 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Compute size measures | status=SUCCESS | time=20ms
+sonar     | 2024.06.03 09:53:19 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Compute new coverage | status=SUCCESS | time=4ms
+sonar     | 2024.06.03 09:53:19 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Compute coverage measures | status=SUCCESS | time=4ms
+sonar     | 2024.06.03 09:53:19 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Compute comment measures | status=SUCCESS | time=1ms
+sonar     | 2024.06.03 09:53:19 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Compute duplication measures | status=SUCCESS | time=1ms
+sonar     | 2024.06.03 09:53:19 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Compute size measures on new code | status=SUCCESS | time=1ms
+sonar     | 2024.06.03 09:53:19 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Compute language distribution | status=SUCCESS | time=13ms
+sonar     | 2024.06.03 09:53:19 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Compute test measures | status=SUCCESS | time=1ms
+sonar     | 2024.06.03 09:53:19 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Compute complexity measures | status=SUCCESS | time=2ms
+sonar     | 2024.06.03 09:53:19 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Load measure computers | status=SUCCESS | time=4ms
+sonar     | 2024.06.03 09:53:19 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Compute Quality Profile status | status=SUCCESS | time=5ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Execute component visitors | status=SUCCESS | time=98ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Checks executed after computation of measures | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Compute pull request fixed issues measure | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Compute Quality Gate measures | status=SUCCESS | time=4ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Compute Quality profile measures | status=SUCCESS | time=4ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Generate Quality profile events | status=SUCCESS | time=1ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Generate Quality gate events | status=SUCCESS | time=1ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Generate Issue Detection events | status=SUCCESS | time=1ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Check upgrade possibility for not analyzed code files. | status=SUCCESS | time=3ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Persist scanner analysis cache | status=SUCCESS | time=12ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Persist components | status=SUCCESS | time=20ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Persist analysis | status=SUCCESS | time=4ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Persist analysis properties | status=SUCCESS | time=6ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Persist measures | inserts=55 | status=SUCCESS | time=16ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Persist live measures | insertsOrUpdates=147 | status=SUCCESS | time=54ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Persist duplication data | insertsOrUpdates=0 | status=SUCCESS | time=1ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Persist new ad hoc Rules | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Persist issues | cacheSize=1.9 kB | inserts=4 | updates=0 | merged=0 | status=SUCCESS | time=15ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Delete issue changes | changes=0 | status=SUCCESS | ti
+me=0ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Persist project links | status=SUCCESS | time=5ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Persist events | status=SUCCESS | time=8ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Persist sources | status=SUCCESS | time=38ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Persist cross project duplications | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Enable analysis | status=SUCCESS | time=5ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Persist Fixed issues in Pull Request | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Update last usage date of quality profiles | status=SUCCESS | time=8ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Purge db | status=SUCCESS | time=33ms
+sonar     | 2024.06.03 09:53:20 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Load changed issues for indexing | status=SUCCESS | time=1ms
+sonar     | 2024.06.03 09:53:21 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Index analysis | status=SUCCESS | time=611ms
+sonar     | 2024.06.03 09:53:21 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Update need issue sync for branch | status=SUCCESS | time=6ms
+sonar     | 2024.06.03 09:53:21 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Compute total Project ncloc | status=SUCCESS | time=6ms
+sonar     | 2024.06.03 09:53:21 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Publishing taint vulnerabilities and security hotspots events | status=SUCCESS | time=12ms
+sonar     | 2024.06.03 09:53:21 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Send issue notifications | newIssuesNotifs=0 | newIssuesDeliveries=0 | myNewIssuesNotifs=0 | myNewIssuesDeliveries=0 | chan
+gesNotifs=0 | changesDeliveries=0 | status=SUCCESS | time=4ms
+sonar     | 2024.06.03 09:53:21 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Actions to execute when the computation is about to be finished | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 09:53:21 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][
+o.s.c.t.s.ComputationStepExecutor] Publish task results | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 09:53:21 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.s.ComputationStepExecutor] Trigger refresh of Portfolios and Applications | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 09:53:21 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.p.a.p.PostProjectAnalysisTasksExecutor] Webhooks | globalWebhooks=0 | projectWebhooks=0 | status=SUCCESS | time=7ms
+sonar     | 2024.06.03 09:53:21 INFO  ce[59619bdd-1671-4b86-9ecd-03b191489d34][o.s.c.t.CeWorkerImpl] Executed task | project=hello | type=REPORT | id=59619bdd-1671-4b86-9ecd-03b191489d34 | submitter=admin | status=SUCCESS | time=3338ms
+postgres  | 2024-06-03 09:56:12.035 UTC [27] LOG:  checkpoint starting: time
+postgres  | 2024-06-03 09:56:25.425 UTC [27] LOG:  checkpoint complete: wrote 134 buffers (0.8%); 0 WAL file(s) added, 0 removed, 0 recycled; write=13.339 s, sync=0.010 s, total=13.391 s; sync files=87, longest=0.003 s, average=0.001 s; distance=367 kB, estimate=367 kB; lsn=0/4632430, redo lsn=0/46323F8
+postgres  | 2024-06-03 10:01:12.526 UTC [27] LOG:  checkpoint starting: time
+postgres  | 2024-06-03 10:01:12.703 UTC [27] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.118 s, sync=0.029 s, total=0.178 s; sync files=2, longest=0.021 s, average=0.015 s; distance=2 kB, estimate=330 kB; lsn=0/4632CE0, redo lsn=0/4632CA8
+postgres  | 2024-06-03 10:11:12.902 UTC [27] LOG:  checkpoint starting: time
+postgres  | 2024-06-03 10:11:13.049 UTC [27] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.106 s, sync=0.008 s, total=0.148 s; sync files=2, longest=0.006 s, average=0.004 s; distance=2 kB, estimate=298 kB; lsn=0/4633720, redo lsn=0/46336E8
+postgres  | 2024-06-03 10:26:12.349 UTC [27] LOG:  checkpoint starting: time
+postgres  | 2024-06-03 10:26:12.507 UTC [27] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.120 s, sync=0.008 s, total=0.159 s; sync files=2, longest=0.006 s, average=0.004 s; distance=2 kB, e
+stimate=268 kB; lsn=0/4634300, redo lsn=0/46342C8
+postgres  | 2024-06-03 10:31:12.572 UTC [27] LOG:  checkpoint starting: time
+postgres  | 2024-06-03 10:31:12.741 UTC [27] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.105 s, sync=0.012 s, total=0.169 s; sync files=2, longest=0.010 s, average=0.006 s; distance=2 kB, estimate=242 kB; lsn=0/4634EF8, redo lsn=0/4634EC0
+postgres  | 2024-06-03 10:36:12.840 UTC [27] LOG:  checkpoint star
+ting: time
+postgres  | 2024-06-03 10:36:13.019 UTC [27] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.106 s, sync=0.008 s, total=0.180 s; sync files=2, longest=0.005 s, average=0.004 s; distance=3 kB, estimate=218 kB; lsn=0/4635C18, redo lsn=0/4635BE0
+postgres  | 2024-06-03 10:41:12.118 UTC [27] LOG:  checkpoint star
+ting: time
+postgres  | 2024-06-03 10:41:12.280 UTC [27] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.105 s, sync=0.020 s, total=0.162 s; sync files=2, longest=0.011 s, average=0.010 s; distance=3 kB, estimate=196 kB; lsn=0/4636A30, redo lsn=0/46369F8
+postgres  | 2024-06-03 10:46:12.378 UTC [27] LOG:  checkpoint starting: time
+postgres  | 2024-06-03 10:46:12.841 UTC [27] LOG:  checkpoint complete: wrote 5 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.406 s, sync=0.032 s, total=0.463 s; sync files=5, longest=0.012 s, average=0.007 s; distance=2 kB, estimate=177 kB; lsn=0/4637240, redo lsn=0/4637208
+postgres  | 2024-06-03 11:06:13.192 UTC [27] LOG:  checkpoint starting: time
+postgres  | 2024-06-03 11:06:14.057 UTC [27] LOG:  checkpoint complete: wrote 9 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.812 s, sync=0.017 s, total=0.866 s; sync files=9, longest=0.012 s, average=0.002 s; distance=8 kB, estimate=160 kB; lsn=0/4639488, redo l
+sn=0/4639450
+postgres  | 2024-06-03 11:11:13.155 UTC [27] LOG:  checkpoint starting: time
+postgres  | 2024-06-03 11:11:13.304 UTC [27] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.105 s, sync=0.016 s, total=0.149 s; sync files=2, longest=0.014 s, average=0.008 s; distance=4 kB, estimate
+=144 kB; lsn=0/463A4D8, redo lsn=0/463A4A0
+postgres  | 2024-06-03 11:16:13.402 UTC [27] LOG:  checkpoint starting: time
+postgres  | 2024-06-03 11:16:13.558 UTC [27] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.105 s, sync=0.007 s, total=0.157 s; sync files=2, longest=0.005 s, average=0.004 s; distance=4 kB, estimate=130 kB; lsn=0/463B628, redo lsn=0/463B5F0
+postgres  | 2024-06-03 11:21:13.656 UTC [27] LOG:  checkpoint starting: time
+postgres  | 2024-06-03 11:21:13.805 UTC [27] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.106 s, sync=0.007 s, total=0.149 s; sync files=2, longest=0.005 s, average=0.004 s; distance=4 kB, estimate=118 kB; lsn=0/463C898, redo lsn=0/463C860
+postgres  | 2024-06-03 11:36:14.083 UTC [27] LOG:  checkpoint starting: time
+postgres  | 2024-06-03 11:36:14.232 UTC [27] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.105 s, sync=0.024 s, total=0.150 s; sync files=2, longest=0.018 s, average=0.012 s; distance=4 kB, estimate=106 kB; lsn=0/463DBF8, redo lsn=0/463DBC0
+postgres  | 2024-06-03 11:46:14.338 UTC [27] LOG:  checkpoint starting: time
+postgres  | 2024-06-03 11:46:14.623 UTC [27] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.205 s, sync=0.037 s, total=0.285 s; sync files=3, longest=0.025 s, average=0.013 s; distance=3 kB, estimate=96 kB; lsn=0/463EAD0, redo lsn=0/463EA98
+postgres  | 2024-06-03 11:51:14.721 UTC [27] LOG:  checkpoint starting: time
+postgres  | 2024-06-03 11:51:19.070 UTC [27] LOG:  checkpoint complete: wrote 44 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.314 s, sync=0.007 s, total=4.350 s; sync files=30, longest=0.003 s, average=0.001 s; distance=110 kB, estimate=110 kB; lsn=0/465A398, redo lsn=0/465A360
+sonar     | 2024.06.03 11:57:06 INFO  ce[][o.s.c.t.CeWorkerImpl] Execute task | project=hello | type=REPORT | id=ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd | submitter=admin
+sonar     | 2024.06.03 11:57:06 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Extract report | status=SUCCESS | time=12ms
+sonar     | 2024.06.03 11:57:06 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Persist scanner context | status=SUCCESS | time=7ms
+sonar     | 2024.06.03 11:57:06 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Propagate analysis warnings from scanner report | status=SUCCESS | time=5ms
+sonar     | 2024.06.03 11:57:06 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Generate analysis UUID | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:06 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Load analysis metadata | status=SUCCESS | time=4ms
+sonar     | 2024.06.03 11:57:06 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Initialize | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:06 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Build tree of components | components=3 | status=SUCCESS | time=5ms
+sonar     | 2024.06.03 11:57:06 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Validate project | status=SUCCESS | time=3ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Load quality profiles | status=SUCCESS | time=867ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Checks executed before computation of measures | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Generate SQ Upgrade analysis events | status=SUCCESS | time=1ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Load file hashes and statuses | status=SUCCESS | time=2ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Load Quality gate | status=SUCCESS | time=3ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Load new code period | status=SUCCESS | time=7ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Detect file moves | reportFiles=1 | dbFiles=1 | addedFiles=1 | movedFiles=0 | status=SUCCESS | time=6ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Detect file moves in Pull Request scope | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Load duplications | duplications=0 | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Compute cross project duplications | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Compute size measures | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Compute new coverage | status=SUCCESS | time=1ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Compute coverage measures | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Compute comment measures | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Compute duplication measures | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Compute size measures on new code | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Compute language distribution | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Compute test measures | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Compute complexity measures | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Load measure computers | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Compute Quality Profile status | status=SUCCESS | time=3ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Execute component visitors | status=SUCCESS | time=39ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Checks executed after computation of measures | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Compute pull request fixed issues measure | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Compute Quality Gate measures | status=SUCCESS | time=13ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Compute Quality profile measures | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Generate Quality profile events | status=SUCCESS | time=2ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Generate Quality gate events | status=SUCCESS | time=4ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Generate Issue Detection events | status=SUCCESS | time=2ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Check upgrade possibility for not analyzed code files. | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Persist scanner analysis cache | status=SUCCESS | time=3ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Persist components | status=SUCCESS | time=5ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Persist analysis | status=SUCCESS | time=3ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Persist analysis properties | status=SUCCESS | time=3ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Persist measures | inserts=57 | status=SUCCESS | time=7ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Persist live measures | insertsOrUpdates=238 | status=SUCCESS | time=26ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Persist duplication data | insertsOrUpdates=0 | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Persist new ad hoc Rules | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Persist issues | cacheSize=3.8 kB | inserts=2 | updates=4 | merged=0 | status=SUCCESS | time=13ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Delete issue changes | changes=0 | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Persist project links | status=SUCCESS | time=1ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Persist events | status=SUCCESS | time=4ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Persist sources | status=SUCCESS | time=8ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Persist cross project duplications | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Enable analysis | status=SUCCESS | time=3ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Persist Fixed issues in Pull Request | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Update last usage date of quality profiles | status=SUCCESS | time=3ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Purge db | status=SUCCESS | time=26ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Load changed issues for indexing | status=SUCCESS | time=1ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Index analysis | status=SUCCESS | time=191ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Update need issue sync for branch | status=SUCCESS | time=6ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Compute total Project ncloc | status=SUCCESS | time=7ms
+sonar     | 2024.06.03 11:57:07 WARN  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.p.s.PersistPushEventsStep] Error during publishing push event
+sonar     | java.lang.NullPointerException: Cannot invoke "org.sonar.ce.task.projectanalysis.component.Component.getName()" because "component" is null
+sonar     | 	at org.sonar.ce.task.projectanalysis.pushevent.PushEventFactory.raiseSecurityHotspotClosedEvent(PushEventFactory.java:220)
+sonar     | 	at org.sonar.ce.task.projectanalysis.pushevent.PushEventFactory.raiseSecurityHotspotEvent(PushEventFactory.java:113)
+sonar     | 	at org.sonar.ce.task.projectanalysis.pushevent.PushEventFactory.raiseEventOnIssue(PushEventFactory.java:85)
+sonar     | 	at org.sonar.ce.task.projectanalysis.step.PersistPushEventsStep.execute(PersistPushEventsStep.java:63)
+sonar     | 	at org.sonar.ce.task.step.ComputationStepExecutor.executeStep(ComputationStepExecutor.java:79)
+sonar     | 	at org.sonar.ce.task.step.ComputationStepExecutor.executeSteps(ComputationStepExecutor.java:70)
+sonar     | 	at org.sonar.ce.task.step.ComputationStepExecutor.execute(ComputationStepExecutor.java:57)
+sonar     | 	at org.sonar.ce.task.projectanalysis.taskprocessor.ReportTaskProcessor.process(ReportTaskProcessor.java:75)
+sonar     | 	at org.sonar.ce.taskprocessor.CeWorkerImpl$ExecuteTask.executeTask(CeWorkerImpl.java:212)
+sonar     | 	at org.sonar.ce.taskprocessor.CeWorkerImpl$ExecuteTask.run(CeWorkerImpl.java:194)
+sonar     | 	at org.sonar.ce.taskprocessor.CeWorkerImpl.findAndProcessTask(CeWorkerImpl.java:160)
+sonar     | 	at org.sonar.ce.taskprocessor.CeWorkerImpl$TrackRunningState.get(CeWorkerImpl.java:135)
+sonar     | 	at org.sonar.ce.taskprocessor.CeWorkerImpl.call(CeWorkerImpl.java:87)
+sonar     | 	at org.sonar.ce.taskprocessor.CeWorkerImpl.call(CeWorkerImpl.java:53)
+sonar     | 	at com.google.common.util.concurrent.TrustedListenableFutureTask$TrustedFutureInterruptibleTask.runInterruptibly(TrustedListenableFutureTask.java:131)
+sonar     | 	at com.google.common.util.concurrent.InterruptibleTask.run(InterruptibleTask.java:76)
+sonar     | 	at com.google.common.util.concurrent.TrustedListenableFutureTask.run(TrustedListenableFutureTask.java:82)
+sonar     | 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+sonar     | 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+sonar     | 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+sonar     | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+sonar     | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+sonar     | 	at java.base/java.lang.Thread.run(Unknown Source)
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Publishing taint vulnerabilities and security hotspots events | status=SUCCESS | time=9ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Send issue notifications | newIssuesNotifs=0 | newIssuesDeliveries=0 | myNewIssuesNotifs=0 | myNewIssuesDeliveries=0 | changesNotifs=0 | changesDeliveries=0 | status=SUCCESS | time=1ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Actions to execute when the computation is about to be finished | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Publish task results | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.s.ComputationStepExecutor] Trigger refresh of Portfolios and Applications | status=SUCCESS | time=0ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.p.a.p.PostProjectAnalysisTasksExecutor] Webhooks | globalWebhooks=0 | projectWebhooks=0 | status=SUCCESS | time=3ms
+sonar     | 2024.06.03 11:57:07 INFO  ce[ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd][o.s.c.t.CeWorkerImpl] Executed task | project=hello | type=REPORT | id=ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd | submitter=admin | status=SUCCESS | time=1470ms

@@ -1,0 +1,106 @@
+INFO: Scanner configuration file: /opt/sonar-scanner/conf/sonar-scanner.properties
+INFO: Project root configuration file: NONE
+INFO: SonarScanner 5.0.1.3006
+INFO: Java 21.0.2 N/A (64-bit)
+INFO: Linux 6.6.18-1-lts amd64
+INFO: User cache: /root/.sonar/cache
+INFO: Analyzing on SonarQube server 10.5.1.90531
+INFO: Default locale: "en_US", source code encoding: "UTF-8" (analysis is platform dependent)
+INFO: Load global settings
+INFO: Load global settings (done) | time=178ms
+INFO: Server id: 46AF5D23-AY_LO23R_3vtJVGmuK0S
+INFO: User cache: /root/.sonar/cache
+INFO: Loading required plugins
+INFO: Load plugins index
+INFO: Load plugins index (done) | time=209ms
+INFO: Load/download plugins
+INFO: Load/download plugins (done) | time=53ms
+INFO: Process project properties
+INFO: Process project properties (done) | time=7ms
+INFO: Project key: hello
+INFO: Base dir: /home/kas
+INFO: Working dir: /home/kas/.scannerwork
+INFO: Load project settings for component key: 'hello'
+INFO: Load project settings for component key: 'hello' (done) | time=160ms
+INFO: Load quality profiles
+INFO: Load quality profiles (done) | time=198ms
+WARN: SCM provider autodetection failed. Please use "sonar.scm.provider" to define SCM of your project, or disable the SCM Sensor in the project settings.
+INFO: Load active rules
+INFO: Load active rules (done) | time=4780ms
+INFO: Load analysis cache
+INFO: Load analysis cache (1.5 kB) | time=162ms
+WARN: The properties 'sonar.login' and 'sonar.password' are deprecated and will be removed in the future. Please pass a token with the 'sonar.token' property instead.
+INFO: Preprocessing files...
+INFO: 1 language detected in 1 preprocessed file
+INFO: Loading plugins for detected languages
+INFO: Load/download plugins
+INFO: Load/download plugins (done) | time=0ms
+INFO: Inconsistent constructor declaration on bean with name 'org.sonarsource.scanner.api.internal.IsolatedClassloader@458c1321-org.sonar.scanner.issue.IssueFilters': single autowire-marked constructor flagged as optional - this constructor is effectively required since there is no default constructor to fall back to: public org.sonar.scanner.issue.IssueFilters(org.sonar.api.batch.fs.internal.DefaultInputProject)
+INFO: Load project repositories
+INFO: Load project repositories (done) | time=158ms
+INFO: Indexing files...
+INFO: Project configuration:
+INFO: 1 file indexed
+INFO: Quality profile for py: Sonar way
+INFO: ------------- Run sensors on module hello
+INFO: Load metrics repository
+INFO: Load metrics repository (done) | time=115ms
+INFO: Sensor JaCoCo XML Report Importer [jacoco]
+INFO: 'sonar.coverage.jacoco.xmlReportPaths' is not defined. Using default locations: target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml,build/reports/jacoco/test/jacocoTestReport.xml
+INFO: No report imported, no coverage information will be imported by JaCoCo XML Report Importer
+INFO: Sensor JaCoCo XML Report Importer [jacoco] (done) | time=2ms
+INFO: Sensor Python Sensor [python]
+WARN: Your code is analyzed as compatible with all Python 3 versions by default. You can get a more precise analysis by setting the exact Python version in your configuration via the parameter "sonar.python.version"
+INFO: Starting global symbols computation
+INFO: 1 source file to be analyzed
+INFO: 1/1 source file has been analyzed
+INFO: Starting rules execution
+INFO: 1 source file to be analyzed
+INFO: 1/1 source file has been analyzed
+INFO: The Python analyzer was able to leverage cached data from previous analyses for 0 out of 1 files. These files were not parsed.
+INFO: Sensor Python Sensor [python] (done) | time=616ms
+INFO: Sensor Cobertura Sensor for Python coverage [python]
+INFO: Sensor Cobertura Sensor for Python coverage [python] (done) | time=4696ms
+INFO: Sensor PythonXUnitSensor [python]
+INFO: Sensor PythonXUnitSensor [python] (done) | time=4530ms
+INFO: Sensor IaC Docker Sensor [iac]
+INFO: 0 source files to be analyzed
+INFO: 0/0 source files have been analyzed
+INFO: Sensor IaC Docker Sensor [iac] (done) | time=61ms
+INFO: Sensor TextAndSecretsSensor [text]
+INFO: Available processors: 16
+INFO: Using 16 threads for analysis.
+INFO: 1 source file to be analyzed
+INFO: 1/1 source file has been analyzed
+INFO: Sensor TextAndSecretsSensor [text] (done) | time=328ms
+INFO: ------------- Run sensors on project
+INFO: Sensor Zero Coverage Sensor
+INFO: Sensor Zero Coverage Sensor (done) | time=6ms
+INFO: SCM Publisher No SCM system was detected. You can use the 'sonar.scm.provider' property to explicitly specify it.
+INFO: CPD Executor Calculating CPD for 1 file
+INFO: CPD Executor CPD calculation finished (done) | time=6ms
+INFO: Analysis report generated in 43ms, dir size=199.4 kB
+INFO: Analysis report compressed in 14ms, zip size=23.8 kB
+INFO: Analysis report uploaded in 149ms
+INFO: ANALYSIS SUCCESSFUL, you can find the results at: http://localhost:9000/dashboard?id=hello
+INFO: Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+INFO: More about the report processing at http://localhost:9000/api/ce/task?id=ca8f74af-9e05-43cd-a69d-6b6b3e82b3dd
+INFO: Analysis total time: 17.084 s
+INFO: ------------------------------------------------------------------------
+INFO: EXECUTION SUCCESS
+INFO: ------------------------------------------------------------------------
+INFO: Total time: 18.315s
+INFO: Final Memory: 21M/74M
+INFO: ------------------------------------------------------------------------
+Exception in thread "Thread-0" java.lang.NoClassDefFoundError: ch/qos/logback/classic/spi/ThrowableProxy
+	at ch.qos.logback.classic.spi.LoggingEvent.<init>(LoggingEvent.java:145)
+	at ch.qos.logback.classic.Logger.buildLoggingEventAndAppend(Logger.java:424)
+	at ch.qos.logback.classic.Logger.filterAndLog_0_Or3Plus(Logger.java:386)
+	at ch.qos.logback.classic.Logger.error(Logger.java:543)
+	at org.eclipse.jgit.internal.util.ShutdownHook.cleanup(ShutdownHook.java:87)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.ClassNotFoundException: ch.qos.logback.classic.spi.ThrowableProxy
+	at java.base/java.net.URLClassLoader.findClass(Unknown Source)
+	at org.sonarsource.scanner.api.internal.IsolatedClassloader.loadClass(IsolatedClassloader.java:82)
+	at java.base/java.lang.ClassLoader.loadClass(Unknown Source)
+	... 6 more

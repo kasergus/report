@@ -1,35 +1,55 @@
-# Спасти бухгалтера
+# Практическая работа с Sonarqube
 
-## Задание 8.1 
+В требовании задания вы установили запустить два docker контейнера вручную (то есть командой с кучей аргументов). Лично я не вижу в этом смысла, так как специально для подобных случаев был создан `docker-compose`, так что я перенёс все настройки контейнеров в конфигурационный файл `docker-compose.yml`, так что в итоге запуск всех контейнеров и их настройка свелись к одной команде `sudo docker-compose up`. Всё, что касается docker файлов вы можете найти в папке `dockerfiles`.
 
-> Исследуйте файл «Win7-2515534d.vmem» с помощью Volatility 2. Введите имя родительского процесса для @WanaDecryptor (Pid 1060) в качестве ответа. Введите ответ в формате \_.exe
+![postgres_and_sonar](./screenshots/postgres_and_sonar_runned_succesfully.png)
 
-Я перенаправил вывод команды в файл temp.txt. 
+Я решил создать проект с именем `hello`, и произвести в нём все требуемые тесты. В запуске sonar в инструкции опять требовалось запустить команду с кучей аргументов, по этому я создал конфигурационный файл `sonar-scanner.properties` (его вы можете найти в папке `configs`, впишите в квадратные скобки ваши данные), и в итоге вся команда запуска, аутентификация в проекте и настройка сканнера sonarqube свелась к одной команде `sudo sonar-scanner`.
 
+## Результаты сканирования
 
-``` bashscript
-python2 vol.py Win7-2515534d.vmem --profile=Win7SP1x64 pslist > ~/temp.txt
-```
+Тут всё сработало как и ожидалось, только вместо двух ошибок в работе программы нашлось три. 
 
-Затем при помощи функции поиска в текстовом редакторе `neovim` я смог найти процесс с `pid` 1060, узнав его `ppid` (1792) я нашёл родительский процесс и посмотрел его имя.
+![hotspots](./screenshots/security_hotspots.png)
 
+Ниже будет предоставлен скриншот уязвимости, её описание и рекомендации по устранению.
 
-## Задание 8.2
+### CSRF
 
-> Исследуйте файл «Win7-2515534d.vmem» с помощью Volatility. В Taskche.exe (Pid 1792) открыто несколько дескрипторов файлов. В качестве ответа введите имя подозрительного файла, заканчивающееся на .WNCRYT. Введите ответ в формате \_.WNCRYT
+![csrf](./screenshots/csrf.png)
 
-Я сделал практически тоже самое, однако на сей раз указал `pid` родительского процесса (1792), а так же использовал другой модуль `handles`. Поскольку задание требует найти имя файла, я так же отфильтровал вывод команды (поставил тип объекта `File`). 
+> A cross-site request forgery (CSRF) attack occurs when a trusted user of a web application can be forced, by an attacker, to perform sensitive actions that he didn’t intend, such as updating his profile or sending a message, more generally anything that can change the state of the application.
 
-``` bashscript
-python2 vol.py Win7-2515534d.vmem --profile=Win7SP1x64 -p 1792 --object-type=Files handles > ~/temp2.txt
-```
+> The attacker can trick the user/victim to click on a link, corresponding to the privileged action, or to visit a malicious web site that embeds a hidden web request and as web browsers automatically include cookies, the actions can be authenticated and sensitive.
 
-## Задание 8.3
+![recommendations](./screenshots/csrf_rec.png)
 
-> Исследуйте файл «Win7-2515534d.vmem» с помощью Volatility. Найдите Pid (process id) процесса, который загрузил zlib1.dll.
+### Unsafe HTTP methods
 
-Тут я использовал модуль `dlllist`, а затем отмотав вверх (в текстовом файле) нашёл имя и `pid` процесса. Искал разумеется по имени динамической библиотеки `zlib1.dll`
+![methods](./screenshots/http_methods.png)
 
-``` bashscript
-python2 vol.py Win7-2515534d.vmem --profile=Win7SP1x64 dlllist > ~/temp3.txt
-```
+> An HTTP method is safe when used to perform a read-only operation, such as retrieving information. In contrast, an unsafe HTTP method is used to change the state of an application, for instance to update a user’s profile on a web application.
+
+> Common safe HTTP methods are GET, HEAD, or OPTIONS.
+
+> Common unsafe HTTP methods are POST, PUT and DELETE.
+
+> Allowing both safe and unsafe HTTP methods to perform a specific operation on a web application could impact its security, for example CSRF protections are most of the time only protecting operations performed by unsafe HTTP methods.
+
+![recommendations](./screenshots/methods_rec.png)
+
+### Enabling debug feature
+
+![debug](./screenshots/debug.png)
+
+> Development tools and frameworks usually have options to make debugging easier for developers. Although these features are useful during development, they should never be enabled for applications deployed in production. Debug instructions or error messages can leak detailed information about the system, like the application’s path or file names.
+
+![recommendations](./screenshots/debug_rec.png)
+
+## Заключение
+
+Все вышеперечисленные уязвимости были устранены в соответствии с рекомендациями.
+
+![fixed](./screenshots/fixed.png)
+
+В папку `sources` я закинул сканируемый код (который вы дали в практическом задании), а так же отредактированный код, в котором уязвимости были устранены (там в итоге нашлись ещё, но это уже не касается задания, поскольку суть была именно в устранении http запросов и csrf уязвимостей), файл с отредактированным кодом называется `sql-injection_redacted.py`. Если хотите воспроизвести работу сервера, то просто зайдите в директорию `dockerfiles` и напишите в ней `sudo docker-compose up`.
