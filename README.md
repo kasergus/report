@@ -19,7 +19,6 @@
 ![csrf](./screenshots/csrf.png)
 
 > A cross-site request forgery (CSRF) attack occurs when a trusted user of a web application can be forced, by an attacker, to perform sensitive actions that he didn’t intend, such as updating his profile or sending a message, more generally anything that can change the state of the application.
-
 > The attacker can trick the user/victim to click on a link, corresponding to the privileged action, or to visit a malicious web site that embeds a hidden web request and as web browsers automatically include cookies, the actions can be authenticated and sensitive.
 
 ![recommendations](./screenshots/csrf_rec.png)
@@ -29,11 +28,8 @@
 ![methods](./screenshots/http_methods.png)
 
 > An HTTP method is safe when used to perform a read-only operation, such as retrieving information. In contrast, an unsafe HTTP method is used to change the state of an application, for instance to update a user’s profile on a web application.
-
 > Common safe HTTP methods are GET, HEAD, or OPTIONS.
-
 > Common unsafe HTTP methods are POST, PUT and DELETE.
-
 > Allowing both safe and unsafe HTTP methods to perform a specific operation on a web application could impact its security, for example CSRF protections are most of the time only protecting operations performed by unsafe HTTP methods.
 
 ![recommendations](./screenshots/methods_rec.png)
